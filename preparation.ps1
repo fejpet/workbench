@@ -2,13 +2,11 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 cinst git -y
 refreshenv
-mkdir ~/install
+mkdir -p ~/install
 cd ~/install
-
-$ENV:PATH="C:\Program Files\Git\bin;$ENV:PATH"
 
 git clone https://github.com/fejpet/workbench.git
 
 cd workbench
 
-./build.ps1
+./build.ps1 @{"git_global_name"="fejpet"; "git_global_email"="fejp3t@gmail.com"}
