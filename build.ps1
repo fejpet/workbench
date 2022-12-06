@@ -1,3 +1,13 @@
+# Simple function for applying template-based config files
+function Set-ContentFromTemplate {
+  Param($Path, $TemplatePath, $Parameters)
+  $content = Get-Content "$TemplatePath"
+  foreach ($paramName in $Parameters.Keys) {
+    $content = $content.replace("{{ ${paramName} }}", $Parameters.Item($paramName))
+  }
+  Set-Content -Path $Path -Value $content
+}
+
 function ShowFileExtensions() 
 {
     Push-Location
