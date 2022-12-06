@@ -2,7 +2,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 cinst git -y
 refreshenv
-mkdir -p ~/install
+New-Item -path ~/install -ItemType Directory -Force
 cd ~/install
 
 git clone https://github.com/fejpet/workbench.git
