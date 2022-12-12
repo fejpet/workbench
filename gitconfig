@@ -1,0 +1,13 @@
+[core]
+autocrlf = true
+
+[branch]
+autosetuprebase = always
+
+[push]
+default = current
+
+[user]
+name = {{ git_global_name }}
+email = {{ git_global_email }}
+
