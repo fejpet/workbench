@@ -41,7 +41,7 @@ function Configure-Powershell {
 
 function Configure-Git {
   Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-  PowerShellGet\Install-Module posh-git -Scope CurrentUser -Confirm
+  PowerShellGet\Install-Module posh-git -Scope CurrentUser -Force
   Update-Module posh-git
   Set-ContentFromTemplate -Path ~/.gitconfig -TemplatePath gitconfig -Parameters $buildParameters
 }
