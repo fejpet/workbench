@@ -1,13 +1,13 @@
-#set expandtab
+set expandtab
 set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
-#set cindent
-#syntax on
+set cindent
+syntax on
 
 set number
-"set relativenumber
+" set relativenumber
 
 " --- refactoring: replace current word ---
 map <leader>fr *:%s//
