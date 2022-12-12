@@ -25,7 +25,7 @@ function Install-Packages {
   cinst gitextensions -y
   cinst openssh -y
   cinst visualstudiocode --params '/NoDesktopIcon' -y
-  $env:PATH += 'C:\Program Files\Microsoft VS Code\bin'
+  $env:PATH += ';C:\Program Files\Microsoft VS Code\bin'
   cinst nodejs -y
   cinst nuget.commandline -y
   cinst terraform -y
