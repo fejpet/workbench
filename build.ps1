@@ -33,6 +33,7 @@ function Install-Packages {
   cinst python -y
   cinst jq -y
   cinst jdk8 -y
+  cinst rust -y
 }
 
 function Configure-Powershell {
