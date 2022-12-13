@@ -5,6 +5,7 @@ set autoindent
 set smartindent
 set cindent
 syntax on
+filetype plugin indent on
 
 set number
 " set relativenumber
