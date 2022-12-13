@@ -69,6 +69,10 @@ function Configure-VisualStudio {
   Copy-Item vimrc ~/.vimrc
 }
 
+function Configure-Rust {
+cd ~
+git clone https://github.com/rust-lang/rust.vim .vim/pack/plugins/start/rust.vim
+}
 
 @(
   "ShowFileExtensions",
@@ -76,7 +80,8 @@ function Configure-VisualStudio {
   "Configure-Powershell",
   "Configure-Git",
   "Configure-VSCode",
-  "Configure-VisualStudio"
+  "Configure-VisualStudio",
+  "Configure-Rust"
 ) | ForEach-Object {
   echo ""
   echo "***** $_ *****"
