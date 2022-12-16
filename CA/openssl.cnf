@@ -1,0 +1,11 @@
+[req]
+req_extensions = v3_req
+distinguished_name=req_distinguished_name
+
+[req_distinguished_name]
+
+[v3_req]
+subjectKeyIdentifier=hash
+basicConstraints = CA:FALSE
+extendedKeyUsage = codeSigning, msCodeInd, msCodeCom
+nsCertType = client, email, objsign
