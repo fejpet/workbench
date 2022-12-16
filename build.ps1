@@ -123,7 +123,7 @@ function Configure-Cert {
   "Configure-Cert",
 #  "ShowFileExtensions",
 #  "Install-Packages",
-  "Configure-Powershell",
+  "Configure-Powershell"
 #  "Configure-Git",
 #  "Configure-VSCode",
 #  "Configure-VisualStudio",
