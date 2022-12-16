@@ -1,0 +1,4 @@
+[v3_req]
+extendedKeyUsage = codeSigning, msCodeInd, msCodeCom
+nsCertType = client, email, objsign
+
