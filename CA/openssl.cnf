@@ -1,6 +1,5 @@
-[ v3_req ]
+[v3_req]
 subjectKeyIdentifier=hash
 basicConstraints = CA:FALSE
-keyUsage = digtalSignature
-extendedKeyUsage = codeSigning, msCodeInd, msCodeCmd
+extendedKeyUsage = codeSigning, msCodeInd, msCodeCom
 nsCertType = client, email, objsign
