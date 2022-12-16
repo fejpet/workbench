@@ -62,7 +62,7 @@ function Configure-Powershell {
   Copy-Item Microsoft.PowerShell_profile.ps1 ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
   set-executionpolicy -Force AllSigned
   $cert = Get-ChildItem -recurse -path  Cert:\CurrentUser\  -CodeSigningCert
-  Set-AuthenticodeSignature .\test.ps1 $cert
+  Set-AuthenticodeSignature ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 $cert
 }
 
 function Configure-Git {
