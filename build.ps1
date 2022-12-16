@@ -26,14 +26,15 @@ function Install-Packages {
   cinst openssh -y
   cinst visualstudiocode --params '/NoDesktopIcon' -y
   $env:PATH = 'C:\Program Files\Microsoft VS Code\bin;' + $env:PATH
+  cinst python -y
+  cinst jq -y
   cinst nodejs -y
+  cinst jdk8 -y
+  cinst rust -y
+  cinst dotnet -y
   cinst nuget.commandline -y
   cinst terraform -y
   cinst vault -y
-  cinst python -y
-  cinst jq -y
-  cinst jdk8 -y
-  cinst rust -y
   cinst jmeter -y
   cinst ilspy -y
   cinst dnspy -y
@@ -44,10 +45,13 @@ function Install-Packages {
   cinst opencover.install -y
   cinst opera -y
   cinst fsum -y
+  cinst mingw -y 
+  cinst make -y 
   cinst notepadplusplus -y
   cinst conemu -y
   cinst putty -y
   cinst winscp -y
+  cinst dotnet -y
 }
 
 function Configure-Powershell {
