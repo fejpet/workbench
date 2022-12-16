@@ -38,7 +38,7 @@ function Install-Packages {
   cinst jmeter -y
   cinst ilspy -y
   cinst dnspy -y
-  cinst freefilesync -y -ia silent
+  cinst freefilesync --params '/silent' -y
   cinst codeblocks -y
   cinst dos2unix -y
   cinst procexp -y 
@@ -52,11 +52,17 @@ function Install-Packages {
   cinst putty -y
   cinst winscp -y
   cinst dotnet -y
+  cinst openssl -y
+  $env:PATH = 'C:\Program Files\OpenSSL-Win64\bin;' + $env:PATH
+
 }
 
 function Configure-Powershell {
   mkdir -p ~/Documents/WindowsPowerShell/autoload -Force
   Copy-Item Microsoft.PowerShell_profile.ps1 ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
+  set-executionpolicy -Force AllSigned
+  $cert = Get-ChildItem -recurse -path  Cert:\CurrentUser\  -CodeSigningCert
+  Set-AuthenticodeSignature .\test.ps1 $cert
 }
 
 function Configure-Git {
@@ -92,14 +98,36 @@ cd ~
 git clone https://github.com/rust-lang/rust.vim .vim/pack/plugins/start/rust.vim
 }
 
+function Configure-Cert {
+  cinst openssl -y
+  $env:PATH = 'C:\Program Files\OpenSSL-Win64\bin;' + $env:PATH
+  mkdir CA
+  cd .\CA\
+  mkdir certs
+  mkdir private
+  set OPENSSL_CONF=C:\Users\test\install\workbench\CA\openssl.cnf
+  set RANDFILE=C:\Users\test\install\workbench\CA\private\.rand
+  openssl genrsa -out private\cakey.pem 2048
+  openssl req -new -x509 -days 3650 -key private\cakey.pem -out certs\cacert.crt -subj "/CN=CA-SignPS"
+  openssl genrsa -out private\userkey.pem 2048
+  openssl req -new -key private\userkey.pem -reqexts v3_req -out certs\user.csr -nodes -subj "/CN=localhost"
+  openssl x509 -req -days 3650 -in certs\user.csr -CA certs\cacert.crt -CAkey private\cakey.pem -extfile .\v3.cfg -extensions v3_req -out certs\user.crt
+  openssl pkcs12 -export -in certs\user.crt -inkey private\userkey.pem -out certs\user.pfx -passout pass:
+  Import-PfxCertificate -FilePath certs\user.pfx -CertStoreLocation Cert:\LocalMachine\Root
+  Import-Certificate -FilePath certs\cacert.crt -CertStoreLocation Cert:\LocalMachine\Root
+  rm -r cert
+  rm -r private
+}
+
 @(
-  "ShowFileExtensions",
-  "Install-Packages",
+  "Configure-Cert",
+#  "ShowFileExtensions",
+#  "Install-Packages",
   "Configure-Powershell",
-  "Configure-Git",
-  "Configure-VSCode",
-  "Configure-VisualStudio",
-  "Configure-Rust"
+#  "Configure-Git",
+#  "Configure-VSCode",
+#  "Configure-VisualStudio",
+#  "Configure-Rust" 
 ) | ForEach-Object {
   echo ""
   echo "***** $_ *****"
