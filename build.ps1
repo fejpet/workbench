@@ -37,7 +37,7 @@ function Install-Packages {
   cinst jmeter -y
   cinst ilspy -y
   cinst dnspy -y
-  cinst freefilesync -y
+  cinst freefilesync -y -ia silent
   cinst codeblocks -y
   cinst dos2unix -y
   cinst procexp -y 
@@ -45,7 +45,6 @@ function Install-Packages {
   cinst opera -y
   cinst fsum -y
   cinst notepadplusplus -y
-  cinst desktops -y
   cinst conemu -y
   cinst putty -y
   cinst winscp -y
