@@ -99,6 +99,7 @@ git clone https://github.com/rust-lang/rust.vim .vim/pack/plugins/start/rust.vim
 }
 
 function Configure-Cert {
+  Push-Location
   cinst openssl -y
   $env:PATH = 'C:\Program Files\OpenSSL-Win64\bin;' + $env:PATH
   mkdir CA
@@ -117,6 +118,7 @@ function Configure-Cert {
   Import-Certificate -FilePath certs\cacert.crt -CertStoreLocation Cert:\LocalMachine\Root
   rm -r cert
   rm -r private
+  Pop-Location
 }
 
 @(
