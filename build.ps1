@@ -116,20 +116,20 @@ function Configure-Cert {
   openssl pkcs12 -export -in certs\user.crt -inkey private\userkey.pem -out certs\user.pfx -passout pass:
   Import-PfxCertificate -FilePath certs\user.pfx -CertStoreLocation Cert:\LocalMachine\Root
   Import-Certificate -FilePath certs\cacert.crt -CertStoreLocation Cert:\LocalMachine\Root
-  rm -r cert
+  rm -r certs
   rm -r private
   Pop-Location
 }
 
 @(
   "Configure-Cert",
-#  "ShowFileExtensions",
-#  "Install-Packages",
+  "ShowFileExtensions",
+  "Install-Packages",
   "Configure-Powershell"
-#  "Configure-Git",
-#  "Configure-VSCode",
-#  "Configure-VisualStudio",
-#  "Configure-Rust" 
+  "Configure-Git",
+  "Configure-VSCode",
+  "Configure-VisualStudio",
+  "Configure-Rust" 
 ) | ForEach-Object {
   echo ""
   echo "***** $_ *****"
