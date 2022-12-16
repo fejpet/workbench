@@ -5,19 +5,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 
 # TODO
-- Rust
-- CodeBlock (include gdb)
 - test rust in vim syntax highlight
-- FreeFileSyncPortable
-- IlSpy
 - Dicom inspector
-- JMeter
-- dnSpy
-- ProcessExplorer
-- dos2unix
-- notepad++
 - make
-- opencover
-- opera
-- desktops
-- fsum

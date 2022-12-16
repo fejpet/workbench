@@ -34,6 +34,21 @@ function Install-Packages {
   cinst jq -y
   cinst jdk8 -y
   cinst rust -y
+  cinst jmeter -y
+  cinst ilspy -y
+  cinst dnspy -y
+  cinst freefilesync -y
+  cinst codeblocks -y
+  cinst dos2unix -y
+  cinst procexp -y 
+  cinst opencover.install -y
+  cinst opera -y
+  cinst fsum -y
+  cinst notepadplusplus -y
+  cinst desktops -y
+  cinst conemu -y
+  cinst putty -y
+  cinst winscp -y
 }
 
 function Configure-Powershell {
