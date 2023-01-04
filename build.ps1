@@ -83,6 +83,7 @@ function Configure-VSCode {
   code --install-extension mshdinsight.azure-hdinsight 
   code --install-extension scalameta.metals
   code --install-extension lextudio.restructuredtext
+  code --install-extension mblode.pretty-formatter
 
 #  Copy-Item keybindings.json ~\AppData\Roaming\Code\User\keybindings.json
 #  Copy-Item settings.json ~\AppData\Roaming\Code\User\settings.json
